@@ -14,7 +14,7 @@ export(Material) var cell_material = preload("TerrainCell.material")
 
 export(Vector2) var center = Vector2()
 enum Edge {EDGE_NONE,EDGE_TOP,EDGE_BOTTOM}
-export(Edge) var edge = EDGE_NONE
+export(Edge) var edge = Edge.EDGE_NONE
 var cells = {}
 
 export(bool) var surface = false
@@ -27,8 +27,8 @@ func cell_range(offset,N):
 	var results = []
 	for dx in range(-N, N+1):
 		for dy in range(
-			max(-N,-N-dx) if edge==EDGE_BOTTOM else -N,
-			(min(N,N-dx) if edge==EDGE_TOP else N) + 1
+			max(-N,-N-dx) if edge==Edge.EDGE_BOTTOM else -N,
+			(min(N,N-dx) if edge==Edge.EDGE_TOP else N) + 1
 		):
 			var dz = -dx-dy
 			results.append(game_space.cube_to_offset(Vector3(dx, dy, dz) + cube))
@@ -78,9 +78,9 @@ func add_cell(game_pos):
 	add_child(cells[game_pos])
 	cells[game_pos].global_translate(world_pos)
 	cells[game_pos].update_shape()
-	if world_data.is_forest(world_pos):
-		var forest = ForestCell.instance()
-		forest.world_data = world_data
-		forest.rotation = Vector3(0,randf(),0)
-		cells[game_pos].add_child(forest)
+#	if world_data.is_forest(world_pos):
+#		var forest = ForestCell.instance()
+#		forest.world_data = world_data
+#		forest.rotation = Vector3(0,randf(),0)
+#		cells[game_pos].add_child(forest)
 	cells[game_pos].scale = Vector3(1.002,1.0,1.002)

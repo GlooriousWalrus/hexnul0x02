@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/roofing.jpeg-00b4f4f4c4cbf73c4338f44775f16cbc.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://GameWorld/Places/assets/roofing.jpeg"
-source_md5="35f3a39688cbb1401d4e2c33523764ee"
-
 dest_files=[ "res://.import/roofing.jpeg-00b4f4f4c4cbf73c4338f44775f16cbc.stex" ]
-dest_md5="132159550956c571ec915e1c7141a221"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

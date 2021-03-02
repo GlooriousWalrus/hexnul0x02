@@ -45,9 +45,9 @@ func move(relative2d):
 	
 func move_camera(dir):
 	match dir:
-		CAM_HI: set_height(camera_height + camera_hspeed)
-		CAM_LO: set_height(camera_height - camera_hspeed)
-		CAM_TURN_LEFT: camera_y_angle -= PI/30
-		CAM_TURN_RIGHT: camera_y_angle += PI/30
+		camera_movement.CAM_HI: set_height(camera_height + camera_hspeed)
+		camera_movement.CAM_LO: set_height(camera_height - camera_hspeed)
+		camera_movement.CAM_TURN_LEFT: camera_y_angle -= PI/30
+		camera_movement.CAM_TURN_RIGHT: camera_y_angle += PI/30
 	emit_signal("moved", target_position, camera_y_angle)
 	look_at_target()

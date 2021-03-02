@@ -54,11 +54,11 @@ func update_chunks(center):
 		if not chunks.has(chunk_center):
 			var edge
 			if cube.x == chunks_radius:
-				add_chunk(chunk_center, ChunkClass.EDGE_BOTTOM)
+				add_chunk(chunk_center, ChunkClass.Edge.EDGE_BOTTOM)
 			elif cube.x == -chunks_radius:
-				add_chunk(chunk_center, ChunkClass.EDGE_TOP)
+				add_chunk(chunk_center, ChunkClass.Edge.EDGE_TOP)
 			else:
-				add_chunk(chunk_center, ChunkClass.EDGE_NONE)
+				add_chunk(chunk_center, ChunkClass.Edge.EDGE_NONE)
 
 func add_chunk(center, edge):
 	chunks[center] = Chunk.instance()
@@ -94,7 +94,7 @@ func _on_GameCamera_moved( target_position, camera_y_angle ):
 	update(cam_game_pos)
 
 func _on_GameLogic_change_mode(mode):
-	if [GameLogicClass.MODE_PLACE,GameLogicClass.MODE_MOVE].has(mode):
+	if [GameLogicClass.Mode.MODE_PLACE,GameLogicClass.Mode.MODE_MOVE].has(mode):
 		show_grid()
 	else:
 		hide_grid()

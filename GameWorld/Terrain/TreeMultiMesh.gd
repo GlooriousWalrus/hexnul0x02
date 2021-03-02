@@ -1,4 +1,4 @@
-xtends MultiMeshInstance
+extends MultiMeshInstance
 
 # class member variables go here, for example:
 # var a = 2

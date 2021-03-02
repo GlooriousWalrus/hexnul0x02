@@ -25,7 +25,7 @@ func _get_neighbors(pos):
 func _compare_f_score(f_score, from, to):
 	return f_score.has(from) and f_score[from] < f_score[to]
 
-func get_path(from_off, to_off):
+func get_path_thing(from_off, to_off):
 	if not is_passable(to_off): return []
 	var from = game_space.offset_to_cube(from_off)
 	var to = game_space.offset_to_cube(to_off)

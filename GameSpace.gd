@@ -48,7 +48,7 @@ func offset_neighbors(offset):
 	return results
 
 func cube_direction(dir):
-	return cube_directions(dir)
+	return cube_directions[dir]
 	
 func cube_distance(a, b):
 	return (abs(a.x - b.x) + abs(a.y - b.y) + abs(a.z - b.z)) / 2
@@ -67,22 +67,24 @@ func cube_line(a, b):
 	var N = cube_distance(a, b)
 	var results = []
 	for i in range(0, N+1):
-		results.append(cube_round(cube_lerp(a, b, 1.0/N * i)))
+		#cube_round
+		print("lol")
+		results.append(cube_lerp(a, b, 1.0/N * i))
 	return results
 
 func cube_range(cube, N):
 	var results = []
 	for dx in range(-N, N+1):
-	    for dy in range(max(-N, -dx-N), min(N, -dx+N)+1):
-	        var dz = -dx-dy
-	        results.append(Vector3(dx, dy, dz) + cube)
+		for dy in range(max(-N, -dx-N), min(N, -dx+N)+1):
+			var dz = -dx-dy
+			results.append(Vector3(dx, dy, dz) + cube)
 	return results
 
 func offset_range(offset, N):
 	var results = []
 	var cube = offset_to_cube(offset)
 	for dx in range(-N, N+1):
-	    for dy in range(max(-N, -dx-N), min(N, -dx+N)+1):
-	        var dz = -dx-dy
-	        results.append(cube_to_offset(Vector3(dx, dy, dz) + cube))
+		for dy in range(max(-N, -dx-N), min(N, -dx+N)+1):
+			var dz = -dx-dy
+			results.append(cube_to_offset(Vector3(dx, dy, dz) + cube))
 	return results

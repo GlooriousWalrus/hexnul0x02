@@ -28,7 +28,7 @@ func _on_unit_moved(unit, from_pos):
 	emit_signal("unit_moved", unit, from_pos, unit.game_position)
 
 func move_unit(unit, pos):
-	unit.path = pathfinder.get_path(unit.game_position, pos)
+	unit.path = pathfinder.get_path_thing(unit.game_position, pos)
 	return unit.path.size() > 0
 
 func select(pos):

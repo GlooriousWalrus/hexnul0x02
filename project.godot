@@ -6,11 +6,16 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=3
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
 
 [application]
 
-config/name="hexnul0x02"
+config/name="Civka"
 run/main_scene="res://Game.tscn"
 run/low_processor_mode=true
 config/icon="res://icon.png"
@@ -24,6 +29,7 @@ GameSpace="*res://GameSpace.gd"
 window/size/width=1280
 window/size/height=800
 window/dpi/allow_hidpi=true
+window/vsync/use_vsync=false
 window/stretch/aspect="expand"
 
 [editor]

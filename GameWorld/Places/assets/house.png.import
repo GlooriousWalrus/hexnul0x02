@@ -4,20 +4,22 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/house.png-c7263d5986f724eb86696f9811be026d.s3tc.stex"
 path.etc2="res://.import/house.png-c7263d5986f724eb86696f9811be026d.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
 
 [deps]
 
 source_file="res://GameWorld/Places/assets/house.png"
-source_md5="d80e473befee4816d6ac179f054c3d16"
-
 dest_files=[ "res://.import/house.png-c7263d5986f724eb86696f9811be026d.s3tc.stex", "res://.import/house.png-c7263d5986f724eb86696f9811be026d.etc2.stex" ]
-dest_md5="721ea3e4ec6eb3a1df6ea9d03996b177"
 
 [params]
 
 compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true
 flags/filter=true
@@ -27,6 +29,7 @@ flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=false

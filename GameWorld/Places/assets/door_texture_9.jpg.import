@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/door_texture_9.jpg-56dd4657d930a30d8b0f11cdd04a0ed9.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://GameWorld/Places/assets/door_texture_9.jpg"
-source_md5="45151a043c2ba4060729f3c1c4f03aa1"
-
 dest_files=[ "res://.import/door_texture_9.jpg-56dd4657d930a30d8b0f11cdd04a0ed9.stex" ]
-dest_md5="7d6ea4df77a9d73fd21c76c5723579b2"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

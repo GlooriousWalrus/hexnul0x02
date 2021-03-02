@@ -18,15 +18,15 @@ export(Material) var material = null
 enum SelectionState {
 	STATE_NORMAL, STATE_MOVE
 }
-export(SelectionState) var state = STATE_NORMAL setget set_state
+export(SelectionState) var state = SelectionState.STATE_NORMAL setget set_state
 export(int) var radius = 0
 
 export(Color) var normal_color = Color("#c3cfb2")
 export(Color) var move_passable_color = Color("#23fdf2")
 
 onready var STATE_COLORS = {
-	STATE_NORMAL: normal_color,
-	STATE_MOVE: move_passable_color
+	SelectionState.STATE_NORMAL: normal_color,
+	SelectionState.STATE_MOVE: move_passable_color
 }
 
 var cells = []
@@ -60,12 +60,12 @@ func update():
 
 func _on_GameLogic_change_mode(mode):
 	match(mode):
-		GameLogicClass.MODE_SELECT:
-			self.state = STATE_NORMAL
-		GameLogicClass.MODE_MOVE:
-			self.state = STATE_MOVE
+		GameLogicClass.Mode.MODE_SELECT:
+			self.state = SelectionState.STATE_NORMAL
+		GameLogicClass.Mode.MODE_MOVE:
+			self.state = SelectionState.STATE_MOVE
 		_:
-			self.state = STATE_NORMAL
+			self.state = SelectionState.STATE_NORMAL
 	update()
 
 func _on_GameLogic_selected(object):

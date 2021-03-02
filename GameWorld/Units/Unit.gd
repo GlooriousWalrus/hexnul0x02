@@ -38,7 +38,7 @@ func _movement():
 			set_game_position(path.front())
 			path.pop_front()
 		else:
-			var new_path = pathfinder.get_path(game_position, path.back())
+			var new_path = pathfinder.get_path_thing(game_position, path.back())
 			self.path = new_path
 
 func _physics_process(delta):

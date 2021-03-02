@@ -51,9 +51,9 @@ func get_game_pos(pos):
 
 func is_passable(game_pos):
 	var impassable = [
-		SNOW,
-		STONE,
-		WATER
+		cell_type.SNOW,
+		cell_type.STONE,
+		cell_type.WATER
 	]
 	return not impassable.has(get_cell_type(get_world_pos(game_pos)))
 	
@@ -68,7 +68,7 @@ func get_height(pos):
 	var sum_weight = 1.0
 	var weight = 1.0
 	for i in range(noises_scales.size()):
-		var scale = noises_scales[i]
+		#var scale = noises_scales[i]
 		var probe = (Vector2(pos.x,pos.z) + noises_modifiers[i]) * noises_scales[i]
 		var val = (noise.openSimplex2D(probe.x, probe.y) + 1.0) * 0.5
 		val *= weight
@@ -79,7 +79,7 @@ func get_height(pos):
 	return world_radius_modifier * sum / sum_weight
 
 func is_forest(pos):
-	if [WATER,STONE,SNOW,SAND].has(get_cell_type(pos)): return false
+	if [cell_type.WATER,cell_type.STONE,cell_type.SNOW,cell_type.SAND].has(get_cell_type(pos)): return false
 	var probe = Vector2(pos.x,pos.z) * forest_noise_scale
 	var val = (noise.openSimplex2D(probe.x, probe.y) + 1.0) * 0.5
 	return val > 0.6
@@ -116,11 +116,11 @@ func get_surface_height(pos):
 
 func get_cell_type(pos):
 	var height = get_height(pos)
-	if height>=snow_height: return SNOW
-	elif height<sand_height: return WATER
+	if height>=snow_height: return cell_type.SNOW
+	elif height<sand_height: return cell_type.WATER
 	if acos(up.dot(get_normal(pos))) > stone_min_angle:
-		return STONE
-	elif height>=gravel_height: return GRAVEL
-	elif height>=grass_height: return GRASS
-	elif height>=sand_height: return SAND
-	else: return WATER
+		return cell_type.STONE
+	elif height>=gravel_height: return cell_type.GRAVEL
+	elif height>=grass_height: return cell_type.GRASS
+	elif height>=sand_height: return cell_type.SAND
+	else: return cell_type.WATER
