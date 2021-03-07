@@ -3,6 +3,10 @@ extends Node
 const xStep = 1.0
 const zStep = xStep * sqrt(3.0) / 2.0
 
+var tree_counter = 0
+
+
+
 var cube_directions = [
 	Vector3(1, -1, 0), Vector3(1, 0, -1), Vector3(0, 1, -1),
 	Vector3(-1, 1, 0), Vector3(-1, 0, 1), Vector3(0, -1, 1)

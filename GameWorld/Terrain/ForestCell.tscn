@@ -1,68 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://GameWorld/Terrain/ForestCell.gd" type="Script" id=1]
-[ext_resource path="res://GameWorld/Terrain/Tree.tscn" type="PackedScene" id=2]
-[ext_resource path="res://GameWorld/Terrain/tree3.obj" type="ArrayMesh" id=3]
-
-[sub_resource type="MultiMesh" id=1]
-color_format = 2
-transform_format = 1
-instance_count = 1
-mesh = ExtResource( 3 )
-transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-color_array = PoolColorArray( 1, 1, 1, 1 )
+[ext_resource path="res://GameWorld/Terrain/Tree.multimesh" type="MultiMesh" id=1]
+[ext_resource path="res://GameWorld/Terrain/Treesmm.gd" type="Script" id=2]
 
 [node name="ForestCell" type="Spatial"]
-script = ExtResource( 1 )
 
-[node name="Tree2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.483274, 0, -0.262577, 0, 0.65, 0, 0.262577, 0, 0.483274, 0.446381, 0, -0.0253426 )
-
-[node name="Tree5" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, -0.189421, 0, 0.313661 )
-
-[node name="Tree6" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.4237, 0, 0.179104, 0, 0.55, 0, -0.179104, 0, 0.4237, 0.0688666, 0, 0.496677 )
-
-[node name="Tree7" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.4, 0, 0, 0, 0.5, 0, 0, 0, 0.4, 0.397787, 0, 0.301003 )
-
-[node name="Tree9" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, 0.587387, 0, -0.393744 )
-
-[node name="Tree27" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.402211, 0, 0.345146, 0, 0.62, 0, -0.345146, 0, 0.402211, -0.684116, 0, 0.392823 )
-
-[node name="Tree28" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.262257, 0, 0.425701, 0, 0.6, 0, -0.425701, 0, 0.262257, -0.335346, 0, -0.829727 )
-
-[node name="Tree10" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.417305, 0, -0.275421, 0, 0.6, 0, 0.275421, 0, 0.417305, 0.159335, 0, -0.378701 )
-
-[node name="Tree11" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.51426, 0, 0.19503, 0, 0.65, 0, -0.19503, 0, 0.51426, -0.30888, 0, -0.378701 )
-multimesh = SubResource( 1 )
-
-[node name="Tree15" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.499274, 0, -0.0269416, 0, 0.6, 0, 0.0269416, 0, 0.499274, -0.0608434, 0, -0.649922 )
-
-[node name="Tree16" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.473244, 0, 0.161369, 0, 0.6, 0, -0.161369, 0, 0.473244, 0.316991, 0, -0.629819 )
-
-[node name="Tree17" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.46501, 0, -0.183755, 0, 0.6, 0, 0.183755, 0, 0.46501, 0.721341, 0, -0.107674 )
-
-[node name="Tree19" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.468125, 0, 0.175669, 0, 0.6, 0, -0.175669, 0, 0.468125, 0.694309, 0, 0.184517 )
-
-[node name="Tree20" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.484962, 0, -0.121706, 0, 0.6, 0, 0.121706, 0, 0.484962, 0.330818, 0, 0.574094 )
-
-[node name="Tree24" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.479215, 0, -0.142664, 0, 0.6, 0, 0.142664, 0, 0.479215, -0.519962, 0, 0.0691475 )
-
-[node name="Tree25" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.499816, 0, 0.013577, 0, 0.6, 0, -0.013577, 0, 0.499816, -0.616441, 0, -0.327419 )
-
-[node name="Tree14" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.382597, 0, -0.3219, 0, 0.6, 0, 0.3219, 0, 0.382597, -0.258783, 0, 0.619581 )
+[node name="Treesmm" type="MultiMeshInstance" parent="."]
+multimesh = ExtResource( 1 )
+script = ExtResource( 2 )

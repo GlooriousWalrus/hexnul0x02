@@ -2,7 +2,6 @@ extends Spatial
 
 var world_data
 onready var game_space = get_node("/root/GameSpace")
-onready var Tree = preload("res://GameWorld/Terrain/Tree.tscn")
 
 export(int) var radius = 1
 
@@ -13,5 +12,9 @@ func _ready():
 #		var tree = Tree.instance()
 #		tree.translation = pos
 #		add_child(tree)
-	for tree in get_children():
-		tree.translation.y = world_data.get_terrain_mesh_height(to_global(tree.translation))
+	pass
+#	for tree in get_children():
+#		tree.translation.y = world_data.get_terrain_mesh_height(to_global(tree.translation))
+	
+	# Assign multimesh to be rendered by the MultiMeshInstance
+#	self.multimesh = mm

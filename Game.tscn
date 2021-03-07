@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://WorldData.gd" type="Script" id=1]
 [ext_resource path="res://GameLogic.gd" type="Script" id=2]
@@ -84,9 +84,6 @@ size = Vector2( 400, 400 )
 subdivide_width = 10
 subdivide_depth = 10
 
-[sub_resource type="MultiMesh" id=5]
-transform_format = 1
-
 [node name="Game" type="Control"]
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -96,8 +93,8 @@ __meta__ = {
 
 [node name="WorldData" type="Node" parent="."]
 script = ExtResource( 1 )
-WORLD_RADIUS = 46
-game_seed = "1"
+WORLD_RADIUS = 48
+game_seed = "7"
 sand_height = 0.479
 grass_height = 0.517
 gravel_height = 0.523
@@ -180,6 +177,8 @@ world_data_node = NodePath("../../WorldData")
 
 [node name="Terrain" type="Spatial" parent="GameWorld"]
 script = ExtResource( 13 )
+chunks_radius = 0
+radius = 2
 visibility_radius = Vector2( 36, 24 )
 chunks_alive_radius = 7
 world_data_node = NodePath("../../WorldData")
@@ -194,9 +193,6 @@ mesh = SubResource( 4 )
 material/0 = null
 
 [node name="ImmediateGeometry" type="ImmediateGeometry" parent="GameWorld"]
-
-[node name="MultiMeshInstance" type="MultiMeshInstance" parent="GameWorld"]
-multimesh = SubResource( 5 )
 
 [node name="Menu" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0.867412 )
@@ -323,11 +319,11 @@ text = "Stat 6"
 [connection signal="moved" from="GameWorld/GameCamera" to="GameWorld/Terrain" method="_on_GameCamera_moved" flags=3]
 [connection signal="place_placed" from="GameWorld/Places" to="Pathfinder" method="_on_Places_place_placed"]
 [connection signal="create_chunk" from="GameWorld/Terrain" to="GameWorld/Terrain" method="_on_create_chunk" flags=3]
-[connection signal="pressed" from="Menu/VBoxContainer/Select" to="Menu" method="_on_Select_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Select" to="GameLogic" method="_on_Select_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Move" to="Menu" method="_on_Move_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Select" to="Menu" method="_on_Select_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Move" to="GameLogic" method="_on_Move_pressed"]
-[connection signal="mode_wagon" from="Menu/VBoxContainer/Units" to="Menu" method="_on_Units_mode_wagon"]
+[connection signal="pressed" from="Menu/VBoxContainer/Move" to="Menu" method="_on_Move_pressed"]
 [connection signal="mode_wagon" from="Menu/VBoxContainer/Units" to="GameLogic" method="_on_Units_mode_wagon"]
-[connection signal="mode_house" from="Menu/VBoxContainer/Places" to="Menu" method="_on_Places_mode_house"]
+[connection signal="mode_wagon" from="Menu/VBoxContainer/Units" to="Menu" method="_on_Units_mode_wagon"]
 [connection signal="mode_house" from="Menu/VBoxContainer/Places" to="GameLogic" method="_on_Places_mode_house"]
+[connection signal="mode_house" from="Menu/VBoxContainer/Places" to="Menu" method="_on_Places_mode_house"]

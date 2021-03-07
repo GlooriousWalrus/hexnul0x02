@@ -5,7 +5,7 @@ extends Node
 
 var SoftNoise = load("res://GameWorld/softnoise.gd")
 
-export var WORLD_RADIUS = 128
+export var WORLD_RADIUS = 24
 export var WORLD_RADIUS_FEATHER = 24
 export var TERRAIN_HEIGHT_SCALE = 15.0
 export var stone_min_angle = PI/8.0
@@ -56,6 +56,9 @@ func is_passable(game_pos):
 		cell_type.WATER
 	]
 	return not impassable.has(get_cell_type(get_world_pos(game_pos)))
+	
+func is_water(pos):
+	if [cell_type.WATER].has(get_cell_type(pos)): return true
 	
 func get_world_pos(game_pos):
 	return game_space.offset_to_world(game_pos)

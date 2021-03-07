@@ -78,8 +78,8 @@ func update(cam_game_pos):
 		if delta.length() <= visibility_radius.length():
 			chunks[center].show()
 			chunks[center]._on_camera_move(cam_game_pos)
-		#elif delta.length() > chunks_alive_radius:
-		#	remove_chunk(center)
+		elif delta.length() > chunks_alive_radius:
+			remove_chunk(center)
 		else:
 			chunks[center].hide()
 	
