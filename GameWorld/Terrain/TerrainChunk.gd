@@ -3,6 +3,8 @@ extends Spatial
 var Cell = preload("res://GameWorld/Terrain/Cell.tscn")
 var ForestCell = preload("res://GameWorld/Terrain/ForestCell.tscn")
 
+var temp = 0
+
 export(int) var radius = 4
 
 onready var game_space = get_node("/root/GameSpace")
@@ -80,7 +82,7 @@ func add_cell(game_pos):
 	cells[game_pos].update_shape()
 	if world_data.is_forest(world_pos):
 		var forest = ForestCell.instance()
-		forest.get_node("Treesmm").world_data = world_data
+		forest.get_children()[0].world_data = world_data
 #		forest.rotation = Vector3(0,randf(),0)
 		cells[game_pos].add_child(forest)
 	if world_data.is_water(world_pos):
